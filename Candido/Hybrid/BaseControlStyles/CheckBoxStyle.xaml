@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Variables/ThemeColors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <!-- CHECKBOX -->
+    <Style TargetType="{x:Type CheckBox}">
+        <Setter Property="BorderBrush" Value="{StaticResource Hybrid.CheckBox.Border}" />
+        <Setter Property="Foreground" Value="{StaticResource Hybrid.Foreground}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+</ResourceDictionary>

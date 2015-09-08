@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="./Hybrid/Variables/ThemeColors.xaml" />
+
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/ButtonStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/CheckBoxStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/ComboBoxStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/DataGridStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/GroupBoxStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/LabelStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/ProgressBarStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/ListBoxStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/StatusBarStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/TabControlStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/TextBoxStyle.xaml" />
+        
+        
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/StackPanelStyle.xaml" />
+        
+        <ResourceDictionary Source="./Hybrid/NamedStyles/AlertBoxStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/NamedStyles/WindowStyle.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

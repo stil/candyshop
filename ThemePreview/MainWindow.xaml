@@ -1,0 +1,120 @@
+﻿<Window x:Class="ThemePreview.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:candido="clr-namespace:Candido;assembly=Candido"
+        Title="MainWindow" SizeToContent="Height" Width="625"
+        Style="{StaticResource WindowTheme}">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="16" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" candido:Spacing.Horizontal="5">
+            <GroupBox Header="ListBox">
+                <StackPanel candido:Spacing.Horizontal="5">
+                    <ListBox Height="60">
+                        <ListBoxItem>test1</ListBoxItem>
+                        <ListBoxItem IsSelected="True">test2</ListBoxItem>
+                        <ListBoxItem>test3</ListBoxItem>
+                        <ListBoxItem>test4</ListBoxItem>
+                    </ListBox>
+
+                    <ListBox>
+                        <ListBoxItem>No scrolls</ListBoxItem>
+                        <ListBoxItem>Item #2</ListBoxItem>
+                    </ListBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="TextBox">
+                <StackPanel candido:Spacing.Horizontal="5">
+                    <TextBox>Sample textbox</TextBox>
+                    <TextBox IsEnabled="False">Disabled textbox</TextBox>
+                    <TextBox AcceptsReturn="True" Height="50">Sample textarea</TextBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Checkbox and radio">
+                <StackPanel candido:Spacing.Horizontal="5">
+                    <RadioButton>test1</RadioButton>
+                    <RadioButton>test2</RadioButton>
+                    <RadioButton>test3</RadioButton>
+                    <CheckBox>Check Me</CheckBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Progress bar">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label>Horizontal</Label>
+                    <ProgressBar Grid.Column="0" Orientation="Horizontal" Value="50" Height="20"></ProgressBar>
+                    <Label Grid.Column="2">Vertical</Label>
+                    <ProgressBar Grid.Column="2" Orientation="Vertical" Value="50"  Height="100" Width="20"></ProgressBar>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel Grid.Column="2" candido:Spacing.Horizontal="5">
+            <GroupBox Header="Buttons">
+                <StackPanel candido:Spacing.Horizontal="5">
+                    <Button>Enabled button</Button>
+                    <Button IsEnabled="False">Disabled button</Button>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="TabControl">
+                <TabControl>
+                    <TabItem Header="Tab item 1">
+                        <TextBlock Margin="10">something</TextBlock>
+                    </TabItem>
+                    <TabItem IsSelected="True" Header="Tab item 2">
+                        <TextBlock Margin="10">something else</TextBlock>
+                    </TabItem>
+                    <TabItem IsEnabled="False" Header="Disabled tab item 2">
+                        <TextBlock Margin="10">something else</TextBlock>
+                    </TabItem>
+                </TabControl>
+            </GroupBox>
+            <GroupBox Header="ComboBox">
+                <StackPanel candido:Spacing.Horizontal="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox Grid.Column="0">
+                            <ComboBoxItem IsSelected="True">Item #1</ComboBoxItem>
+                            <ComboBoxItem>Item #2</ComboBoxItem>
+                        </ComboBox>
+                        <Button Grid.Column="2">Test button</Button>
+                        <ComboBox Grid.Column="4" IsEditable="True">
+                            <ComboBoxItem IsSelected="True">Editable #1</ComboBoxItem>
+                            <ComboBoxItem>Editable #2</ComboBoxItem>
+                        </ComboBox>
+                    </Grid>
+                    <StackPanel Orientation="Horizontal" candido:Spacing.Vertical="5" Height="45">
+                        <ComboBox>
+                            <ComboBoxItem IsSelected="True">Item #1</ComboBoxItem>
+                            <ComboBoxItem>Item #2</ComboBoxItem>
+                        </ComboBox>
+                        <Button>Test button</Button>
+                        <ComboBox IsEditable="True">
+                            <ComboBoxItem IsSelected="True">Editable #1</ComboBoxItem>
+                            <ComboBoxItem>Editable #2</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <ComboBox IsEnabled="False">
+                        <ComboBoxItem IsSelected="True">Disabled #1</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox IsEnabled="False" IsEditable="True">
+                        <ComboBoxItem IsSelected="True">Disabled #1</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox>Plain TextBox</TextBox>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+</Window>

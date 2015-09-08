@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type Border}" x:Key="AlertBox">
+        <Setter Property="Background" Value="#f2f291" />
+        <Setter Property="BorderBrush" Value="#bebe3d" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="2" />
+        <Setter Property="Padding" Value="4" />
+    </Style>
+</ResourceDictionary>
