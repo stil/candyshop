@@ -3,7 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="./Hybrid/Variables/ThemeColors.xaml" />
 
-        <ResourceDictionary Source="./Hybrid/BaseControlStyles/ButtonStyle.xaml" />
+        <ResourceDictionary Source="./Hybrid/BaseControlStyles/ButtonBaseStyle.xaml" />
         <ResourceDictionary Source="./Hybrid/BaseControlStyles/CheckBoxStyle.xaml" />
         <ResourceDictionary Source="./Hybrid/BaseControlStyles/ComboBoxStyle.xaml" />
         <ResourceDictionary Source="./Hybrid/BaseControlStyles/DataGridStyle.xaml" />

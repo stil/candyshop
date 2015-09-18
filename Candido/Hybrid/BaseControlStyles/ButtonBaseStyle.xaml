@@ -5,7 +5,7 @@
         <ResourceDictionary Source="../Variables/ThemeColors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type Button}">
+    <Style x:Key="ButtonBaseStyle" TargetType="{x:Type ButtonBase}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -15,7 +15,7 @@
         <Setter Property="Foreground" Value="{StaticResource Hybrid.Foreground}" />
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <controls:ClippingBorder x:Name="outerBorder"
                                              CornerRadius="{StaticResource Hybrid.CornerRadius}"
                                              Background="{TemplateBinding Background}"
@@ -36,8 +36,18 @@
                         </controls:ClippingBorder>
                     </controls:ClippingBorder>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsDefaulted" Value="true" />
+                        <Trigger Property="Button.IsDefaulted" Value="true" />
                         <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background"
+                                    Value="{StaticResource Hybrid.Button.Background.Hover}" />
+                            <Setter Property="Foreground"
+                                    Value="{StaticResource Hybrid.Button.Foreground.Hover}" />
+                            <Setter TargetName="outerBorder" Property="BorderBrush"
+                                    Value="{StaticResource Hybrid.Button.OuterBorder.Hover}" />
+                            <Setter TargetName="innerBorder" Property="BorderBrush"
+                                    Value="{StaticResource Hybrid.Button.InnerBorder.Hover}" />
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="true">
                             <Setter Property="Background"
                                     Value="{StaticResource Hybrid.Button.Background.Hover}" />
                             <Setter Property="Foreground"
@@ -66,5 +76,6 @@
         </Setter>
     </Style>
 
-
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBaseStyle}" />
+    <Style TargetType="{x:Type ToggleButton}" BasedOn="{StaticResource ButtonBaseStyle}" />
 </ResourceDictionary>

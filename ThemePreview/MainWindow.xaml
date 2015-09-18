@@ -59,6 +59,7 @@
             <GroupBox Header="Buttons">
                 <StackPanel candido:Spacing.Horizontal="5">
                     <Button>Enabled button</Button>
+                    <ToggleButton IsChecked="True">Toggle Button</ToggleButton>
                     <Button IsEnabled="False">Disabled button</Button>
                 </StackPanel>
             </GroupBox>

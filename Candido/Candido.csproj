@@ -80,7 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Hybrid\BaseControlStyles\ButtonStyle.xaml">
+    <Page Include="Hybrid\BaseControlStyles\ButtonBaseStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
