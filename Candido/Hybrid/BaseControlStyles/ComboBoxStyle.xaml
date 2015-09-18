@@ -20,6 +20,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type candido:ComboBoxToggleButton}">
                     <Border CornerRadius="{StaticResource Hybrid.CornerRadius}" x:Name="templateRoot"
+                            Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="1" SnapsToDevicePixels="true">
                         <Border x:Name="innerBorder" CornerRadius="{StaticResource Hybrid.CornerRadius}"
@@ -38,8 +39,8 @@
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <!-- EDITABLE -->
-                        <MultiDataTrigger>
+                        <!-- IsEditable="True" -->
+                        <MultiDataTrigger> <!-- IsMouseOver="True" IsEnabled="True" IsPressed="False" -->
                             <MultiDataTrigger.Conditions>
                                 <Condition
                                     Binding="{Binding IsEditable, RelativeSource={RelativeSource AncestorType={x:Type ComboBox}}}"
@@ -55,10 +56,8 @@
                             <Setter Property="BorderBrush" Value="{StaticResource Hybrid.TextBox.OuterBorder}" />
                             <Setter Property="InnerBorderBrush"
                                     Value="{StaticResource Hybrid.TextBox.InnerBorder}" />
-
-                            <Setter Property="Background" TargetName="splitBorder" Value="White" />
                         </MultiDataTrigger>
-                        <MultiDataTrigger>
+                        <MultiDataTrigger> <!-- IsMouseOver="True" -->
                             <MultiDataTrigger.Conditions>
                                 <Condition
                                     Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}"
@@ -72,7 +71,7 @@
                             <Setter Property="InnerBorderBrush"
                                     Value="{StaticResource Hybrid.TextBox.InnerBorder.Focused}" />
                         </MultiDataTrigger>
-                        <MultiDataTrigger>
+                        <MultiDataTrigger> <!-- IsEnabled="False" -->
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}"
                                            Value="false" />
@@ -90,8 +89,8 @@
                                     Value="{StaticResource ComboBox.Disabled.Editable.Button.Border}" />
                         </MultiDataTrigger>
 
-                        <!-- NOT EDITABLE -->
-                        <MultiDataTrigger>
+                        <!-- IsEditable="False" -->
+                        <MultiDataTrigger> <!-- IsMouseOver="True" -->
                             <MultiDataTrigger.Conditions>
                                 <Condition
                                     Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}"
@@ -111,7 +110,7 @@
                             <Setter Property="Foreground"
                                     Value="{StaticResource Hybrid.Button.Foreground.Hover}" />
                         </MultiDataTrigger>
-                        <MultiDataTrigger>
+                        <MultiDataTrigger> <!-- IsPressed="True" -->
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsPressed, RelativeSource={RelativeSource Self}}"
                                            Value="true" />
@@ -128,7 +127,7 @@
                             <Setter Property="Foreground"
                                     Value="{StaticResource Hybrid.Button.Foreground.Pressed}" />
                         </MultiDataTrigger>
-                        <MultiDataTrigger>
+                        <MultiDataTrigger> <!-- IsEnabled="False" -->
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsEnabled, RelativeSource={RelativeSource Self}}"
                                            Value="false" />
@@ -146,7 +145,7 @@
     </Style>
 
     <ControlTemplate x:Key="ComboBoxTemplate" TargetType="{x:Type ComboBox}">
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Background="{TemplateBinding Background}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition
@@ -164,8 +163,7 @@
                     <ScrollViewer x:Name="DropDownScrollViewer">
                         <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                             <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0"
-                                    VerticalAlignment="Top"
-                                    Width="0">
+                                    VerticalAlignment="Top" Width="0">
                                 <Rectangle x:Name="opaqueRect"
                                            Fill="{Binding Background, ElementName=dropDownBorder}"
                                            Height="{Binding ActualHeight, ElementName=dropDownBorder}"
@@ -178,9 +176,12 @@
                     </ScrollViewer>
                 </Border>
             </Popup>
+
             <candido:ComboBoxToggleButton x:Name="toggleButton" Grid.ColumnSpan="2" Grid.Column="0"
+                                          Background="{TemplateBinding Background}"
                                           IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                           Style="{StaticResource ComboBoxToggleButton}" />
+
             <ContentPresenter Grid.Column="0" TextElement.Foreground="{TemplateBinding Foreground}"
                               x:Name="contentPresenter"
                               ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
@@ -219,7 +220,7 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="ComboBoxEditableTemplate" TargetType="{x:Type ComboBox}">
-        <Grid Background="{TemplateBinding Background}" x:Name="templateRoot" SnapsToDevicePixels="true">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition
@@ -227,11 +228,10 @@
                     Width="0" />
             </Grid.ColumnDefinitions>
             <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2"
-                   IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                   IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                    PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
                    Placement="Bottom">
-                <Border x:Name="dropDownBorder"
-                        BorderBrush="{StaticResource Hybrid.ComboBox.PopUp.Background}"
+                <Border x:Name="dropDownBorder" BorderBrush="{StaticResource Hybrid.ComboBox.PopUp.Background}"
                         BorderThickness="1"
                         Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                     <ScrollViewer x:Name="DropDownScrollViewer">
@@ -252,6 +252,7 @@
             </Popup>
 
             <candido:ComboBoxToggleButton x:Name="toggleButton" Grid.ColumnSpan="2" Grid.Column="0"
+                                          Background="{TemplateBinding Background}"
                                           IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                           Style="{StaticResource ComboBoxToggleButton}" />
 
@@ -267,6 +268,7 @@
                      BorderThickness="0"
                      SelectionBrush="{StaticResource Hybrid.SelectionHighlight}"
                      Foreground="{StaticResource Hybrid.Foreground}"
+                     Background="Transparent"
                      FocusVisualStyle="{x:Null}"
                      ScrollViewer.PanningMode="VerticalFirst">
                 <!--<TextBox.Template>
