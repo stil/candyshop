@@ -10,9 +10,9 @@
             <ColumnDefinition Width="16" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" candido:Spacing.Horizontal="5">
+        <StackPanel Grid.Column="0" candido:Spacing.Vertical="5">
             <GroupBox Header="ListBox">
-                <StackPanel candido:Spacing.Horizontal="5">
+                <StackPanel candido:Spacing.Vertical="5">
                     <ListBox Height="60">
                         <ListBoxItem>test1</ListBoxItem>
                         <ListBoxItem IsSelected="True">test2</ListBoxItem>
@@ -27,14 +27,14 @@
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="TextBox">
-                <StackPanel candido:Spacing.Horizontal="5">
+                <StackPanel candido:Spacing.Vertical="5">
                     <TextBox>Sample textbox</TextBox>
                     <TextBox IsEnabled="False">Disabled textbox</TextBox>
                     <TextBox AcceptsReturn="True" Height="50">Sample textarea</TextBox>
                 </StackPanel>
             </GroupBox>
             <GroupBox Header="Checkbox and radio">
-                <StackPanel candido:Spacing.Horizontal="5">
+                <StackPanel candido:Spacing.Vertical="5">
                     <RadioButton>test1</RadioButton>
                     <RadioButton>test2</RadioButton>
                     <RadioButton>test3</RadioButton>
@@ -55,9 +55,9 @@
                 </Grid>
             </GroupBox>
         </StackPanel>
-        <StackPanel Grid.Column="2" candido:Spacing.Horizontal="5">
+        <StackPanel Grid.Column="2" candido:Spacing.Vertical="5">
             <GroupBox Header="Buttons">
-                <StackPanel candido:Spacing.Horizontal="5">
+                <StackPanel candido:Spacing.Vertical="5">
                     <Button>Enabled button</Button>
                     <ToggleButton IsChecked="True">Toggle Button</ToggleButton>
                     <Button IsEnabled="False">Disabled button</Button>
@@ -77,7 +77,7 @@
                 </TabControl>
             </GroupBox>
             <GroupBox Header="ComboBox">
-                <StackPanel candido:Spacing.Horizontal="5">
+                <StackPanel candido:Spacing.Vertical="5">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -96,7 +96,7 @@
                             <ComboBoxItem>Editable #2</ComboBoxItem>
                         </ComboBox>
                     </Grid>
-                    <StackPanel Orientation="Horizontal" candido:Spacing.Vertical="5" Height="45">
+                    <StackPanel Orientation="Horizontal" candido:Spacing.Horizontal="5" Height="45">
                         <ComboBox>
                             <ComboBoxItem IsSelected="True">Item #1</ComboBoxItem>
                             <ComboBoxItem>Item #2</ComboBoxItem>

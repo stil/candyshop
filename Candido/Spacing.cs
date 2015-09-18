@@ -59,7 +59,7 @@ namespace Candido
 
                 var fe = child as FrameworkElement;
                 if (fe == null) continue;
-                fe.Margin = new Thickness(GetVertical(panel), GetHorizontal(panel), fe.Margin.Right, fe.Margin.Bottom);
+                fe.Margin = new Thickness(GetHorizontal(panel) ,GetVertical(panel), fe.Margin.Right, fe.Margin.Bottom);
             }
         }
     }
