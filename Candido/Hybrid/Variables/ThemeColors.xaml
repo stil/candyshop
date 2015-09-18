@@ -60,6 +60,7 @@
     <SolidColorBrush x:Key="ListBox.Disabled.Border" Color="#FFD9D9D9" />
 
     <!-- COMBOBOX -->
+    <SolidColorBrush x:Key="Hybrid.ComboBox.Arrow" Color="#a3a3ba" />
     <SolidColorBrush x:Key="Hybrid.ComboBox.PopUp.Background" Color="#9595a8" />
     <SolidColorBrush x:Key="Hybrid.ComboBoxItem.Foreground" Color="#505050" />
     <SolidColorBrush x:Key="Hybrid.ComboBoxItem.Foreground.Blur" Color="White" />
