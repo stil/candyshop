@@ -7,7 +7,7 @@
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="16" />
+            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" candido:Spacing.Vertical="5">
@@ -45,13 +45,8 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="10"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Label>Horizontal</Label>
                     <ProgressBar Grid.Column="0" Orientation="Horizontal" Value="50" Height="20"></ProgressBar>
-                    <Label Grid.Column="2">Vertical</Label>
-                    <ProgressBar Grid.Column="2" Orientation="Vertical" Value="50"  Height="100" Width="20"></ProgressBar>
                 </Grid>
             </GroupBox>
         </StackPanel>
