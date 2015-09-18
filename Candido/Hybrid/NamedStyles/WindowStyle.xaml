@@ -5,7 +5,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!-- WINDOW -->
-    <Style x:Key="WindowTheme" TargetType="{x:Type Window}">
+    <Style x:Key="Hybrid.WindowTheme" TargetType="{x:Type Window}">
         <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
         <Setter Property="Background" Value="{StaticResource Hybrid.Background}" />
         <Setter Property="Foreground" Value="{StaticResource Hybrid.Foreground}" />

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:candido="clr-namespace:Candido;assembly=Candido"
         Title="MainWindow" SizeToContent="Height" Width="625"
-        Style="{StaticResource WindowTheme}">
+        Style="{StaticResource Hybrid.WindowTheme}">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
