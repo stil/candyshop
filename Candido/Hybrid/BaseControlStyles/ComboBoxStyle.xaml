@@ -19,17 +19,22 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type candido:ComboBoxToggleButton}">
-                    <Border CornerRadius="{StaticResource Hybrid.CornerRadius}" x:Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}"
+                    <Border CornerRadius="{StaticResource Hybrid.CornerRadius}" x:Name="templateRoot"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="1" SnapsToDevicePixels="true">
-                        <Border x:Name="splitBorder" Background="Transparent" BorderBrush="Transparent"
+                        <Border x:Name="innerBorder" CornerRadius="{StaticResource Hybrid.CornerRadius}"
+                                BorderBrush="{TemplateBinding InnerBorderBrush}" BorderThickness="1,1,1,0">
+                            <Border x:Name="splitBorder" Background="Transparent" BorderBrush="Transparent"
                                     BorderThickness="1" HorizontalAlignment="Right" Margin="0"
                                     SnapsToDevicePixels="true"
                                     Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
-                            <Path x:Name="arrow"
+
+                                <Path x:Name="arrow"
                                       Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z"
                                       Fill="{TemplateBinding Foreground}" HorizontalAlignment="Center"
                                       Margin="0"
                                       VerticalAlignment="Center" />
+                            </Border>
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -218,52 +223,52 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition
-                        MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
-                        Width="0" />
+                    MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+                    Width="0" />
             </Grid.ColumnDefinitions>
             <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2"
-                       IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                       PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
-                       Placement="Bottom">
+                   IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                   PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
+                   Placement="Bottom">
                 <Border x:Name="dropDownBorder"
-                            BorderBrush="{StaticResource Hybrid.ComboBox.PopUp.Background}"
-                            BorderThickness="1"
-                            Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
+                        BorderBrush="{StaticResource Hybrid.ComboBox.PopUp.Background}"
+                        BorderThickness="1"
+                        Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                     <ScrollViewer x:Name="DropDownScrollViewer">
                         <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                             <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0"
-                                        VerticalAlignment="Top" Width="0">
+                                    VerticalAlignment="Top" Width="0">
                                 <Rectangle x:Name="opaqueRect"
-                                               Fill="{Binding Background, ElementName=dropDownBorder}"
-                                               Height="{Binding ActualHeight, ElementName=dropDownBorder}"
-                                               Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
+                                           Fill="{Binding Background, ElementName=dropDownBorder}"
+                                           Height="{Binding ActualHeight, ElementName=dropDownBorder}"
+                                           Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
                             </Canvas>
                             <ItemsPresenter x:Name="ItemsPresenter"
-                                                KeyboardNavigation.DirectionalNavigation="Contained"
-                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                            KeyboardNavigation.DirectionalNavigation="Contained"
+                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Grid>
                     </ScrollViewer>
                 </Border>
             </Popup>
 
             <candido:ComboBoxToggleButton x:Name="toggleButton" Grid.ColumnSpan="2" Grid.Column="0"
-                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                              Style="{StaticResource ComboBoxToggleButton}" />
+                                          IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Style="{StaticResource ComboBoxToggleButton}" />
 
             <TextBox Grid.Column="0" x:Name="PART_EditableTextBox"
-                             HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                             IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
-                             Margin="{TemplateBinding Padding}"
-                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                             Padding="0"
-                             AllowDrop="True"
-                             MinWidth="0"
-                             MinHeight="0"
-                             BorderThickness="0"
-                             SelectionBrush="{StaticResource Hybrid.SelectionHighlight}"
-                             Foreground="{StaticResource Hybrid.Foreground}"
-                             FocusVisualStyle="{x:Null}"
-                             ScrollViewer.PanningMode="VerticalFirst">
+                     HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                     IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}"
+                     Margin="{TemplateBinding Padding}"
+                     VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                     Padding="0"
+                     AllowDrop="True"
+                     MinWidth="0"
+                     MinHeight="0"
+                     BorderThickness="0"
+                     SelectionBrush="{StaticResource Hybrid.SelectionHighlight}"
+                     Foreground="{StaticResource Hybrid.Foreground}"
+                     FocusVisualStyle="{x:Null}"
+                     ScrollViewer.PanningMode="VerticalFirst">
                 <!--<TextBox.Template>
                             <ControlTemplate TargetType="{x:Type TextBox}">
                                 <ScrollViewer x:Name="PART_ContentHost" BorderBrush="{TemplateBinding BorderBrush}"
